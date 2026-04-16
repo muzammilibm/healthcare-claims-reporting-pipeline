@@ -1,130 +1,238 @@
-# Agentic Instructions
+Agentic Instructions (Rewritten for Independent Execution)
 
-## Philosophy
+Core Principle
 
-This project follows an **AI-assisted engineering approach**, not AI-driven development.
+AI is a reviewer, not a builder.
 
-- The human is the **primary engineer and decision-maker**
-- AI is used as a **tool for acceleration, clarity, and support**
-- Ownership of logic, structure, and decisions remains with the developer
+You are responsible for:
 
-The goal is to **build understanding first, then scale execution with AI support**
+Thinking
 
----
+Breaking problems
 
-## Thinking Style: Procedural First
+Writing logic
 
-Development in this project follows a **step-by-step procedural approach**:
+Debugging
 
-- Break problems into small, sequential steps
-- Execute one step at a time (do → verify → move forward)
-- Avoid jumping across multiple abstractions at once
-- Prefer clarity over cleverness
 
-When using AI:
-- Always request **step-by-step outputs**
-- Avoid large, fully abstracted solutions unless explicitly needed
-- Focus on **incremental progress**
+AI is only used for:
 
----
+Clarification
 
-## Role of AI in This Project
+Error explanation
 
-AI is used for:
+Alternative approaches (not full solutions)
 
-- Explaining existing code and workflows
-- Suggesting improvements (refactoring, structure, edge cases)
-- Generating boilerplate or repetitive code
-- Reviewing logic and identifying bugs
-- Converting ideas into structured implementation steps
-- Assisting with documentation and system design
 
-AI is NOT used for:
-
-- Blindly generating full systems without understanding
-- Making architectural decisions without human validation
-- Replacing reasoning or debugging effort
 
 ---
 
-## Development Workflow with AI
+Objective
 
-### Step 1: Understand
-- Analyze the current code or problem
-- Ask AI for explanation if unclear
-- Break into smaller steps
+Build the Healthcare Claims Reporting Pipeline end-to-end with full ownership of logic.
 
-### Step 2: Plan
-- Define what needs to be done in clear steps
-- Validate plan before coding
+Success =
 
-### Step 3: Implement
-- Write code step-by-step
-- Use AI for small blocks, not full systems
+You understand every step
 
-### Step 4: Verify
-- Test outputs
-- Check edge cases
-- Ensure nothing breaks existing flow
+You can explain the system without AI
 
-### Step 5: Improve
-- Refactor for clarity and reuse
-- Reduce duplication
-- Add logging and error handling
+You can rebuild it from scratch
+
+
 
 ---
 
-## Code Generation Guidelines
+Development Rules (Non-Negotiable)
 
-When using AI to generate code:
+1. Think Before Code
 
-- Prefer **small, focused functions**
-- Avoid monolithic outputs (>100 lines unless necessary)
-- Ensure code is readable and follows consistent structure
-- Always review and understand generated code before using it
+Before writing any code, define:
 
-If unclear:
-- Ask AI to **explain line-by-line**
-- Rewrite in simpler terms
+Input → What data comes in? Process → Step-by-step transformation Output → Final result Edge Cases → What can break?
+
+If this is unclear, do not code.
+
 
 ---
 
-## Constraints
+2. Build in Micro-Steps
 
-- Do not introduce unnecessary complexity (classes, patterns) unless justified
-- Maintain compatibility with existing workflow (Excel, Outlook, file structure)
-- Avoid breaking production behavior
-- Keep changes incremental and reversible
+Never build the full pipeline at once.
 
----
+Break into:
 
-## Definition of Done
+File reading
 
-A task is complete only if:
+Data cleaning
 
-- It works correctly
-- It does not break existing functionality
-- It is understandable without external explanation
-- It is documented (if needed)
-- It can be reused or extended
+Transformation
 
----
+Calculation
 
-## Ownership Principle
+Export
 
-All outputs generated with AI must be:
 
-- Reviewed
-- Understood
-- Intentionally integrated
+Each step must:
 
-Final responsibility always lies with the developer.
+Run independently
+
+Be testable
+
+Be understood fully
+
+
 
 ---
 
-## Summary
+3. AI Usage Policy
 
-- Think step-by-step
-- Build incrementally
-- Use AI as support, not authority
-- Prioritize clarity, reliability, and ownership
+Allowed:
+
+"Explain this error"
+
+"Why is this failing?"
+
+"What are possible approaches?"
+
+
+Not Allowed:
+
+"Write full script"
+
+"Build my pipeline"
+
+"Complete this feature"
+
+
+If violated → restart that module.
+
+
+---
+
+4. Debugging Protocol
+
+When stuck:
+
+1. Print intermediate outputs
+
+
+2. Check assumptions
+
+
+3. Reduce input size
+
+
+4. Isolate the issue
+
+
+
+Never guess. Always verify.
+
+
+---
+
+5. Completion Over Perfection
+
+Prioritize:
+
+Working code > clean code
+
+Simple solution > complex design
+
+
+Refactoring comes later.
+
+
+---
+
+14-Day Execution Plan
+
+Phase 1: Data Handling (Days 1–3)
+
+Read .txt report file
+
+Parse structure
+
+Print structured output
+
+
+Phase 2: Cleaning (Days 4–6)
+
+Remove unwanted rows
+
+Normalize columns
+
+Handle missing values
+
+
+Phase 3: Logic (Days 7–9)
+
+Implement AA rate calculation
+
+Validate correctness manually
+
+
+Phase 4: Output (Days 10–12)
+
+Export to CSV
+
+Ensure correct formatting
+
+
+Phase 5: Stabilization (Days 13–14)
+
+Refactor code
+
+Add basic error handling
+
+
+
+---
+
+Engineering Mindset
+
+When stuck, ask: "What is the next smallest step I can complete?"
+
+Not: "How do I finish everything?"
+
+
+---
+
+Definition of Done
+
+Pipeline runs from input → output
+
+No AI-generated core logic
+
+You can explain every function
+
+You can debug without external help
+
+
+
+---
+
+Future Extensions (Only After Completion)
+
+Database integration
+
+Streamlit UI
+
+Automation
+
+Deployment
+
+
+Do NOT start these before core pipeline is complete.
+
+
+---
+
+Final Reminder
+
+You are training execution, not just building a project.
+
+This project is proof that:
+
+> You can think, build, and finish independently.
