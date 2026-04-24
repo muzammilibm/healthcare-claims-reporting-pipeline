@@ -123,3 +123,163 @@
 2026-04-09 18:35:48 - pipeline - INFO - ======================================================================
 2026-04-09 18:35:48 - pipeline - INFO - Healthcare Claims Auto-Adjudication Pipeline - FINISHED
 2026-04-09 18:35:48 - pipeline - INFO - ======================================================================
+2026-04-23 11:07:36 - pipeline - INFO - ======================================================================
+2026-04-23 11:07:36 - pipeline - INFO - Healthcare Claims Auto-Adjudication Pipeline - STARTED
+2026-04-23 11:07:36 - pipeline - INFO - ======================================================================
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - START: Data Parsing and Merging
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - Reading MBU data from: data/input/mbu_report.txt
+2026-04-23 11:07:36 - pipeline - INFO - Loaded 5 records from MBU report
+2026-04-23 11:07:36 - pipeline - INFO - MBU Data - Shape: (5, 5), Columns: ['ClaimID', 'ProcessDate', 'SegmentCode', 'Status', 'ProcessingType']
+2026-04-23 11:07:36 - pipeline - INFO - MBU Data - Memory usage: 1.67 KB
+2026-04-23 11:07:36 - pipeline - INFO - Reading reference data from: data/input/reference_data.csv
+2026-04-23 11:07:36 - pipeline - INFO - Loaded 5 reference records
+2026-04-23 11:07:36 - pipeline - INFO - Reference Data - Shape: (5, 3), Columns: ['SegmentCode', 'SegmentName', 'Region']
+2026-04-23 11:07:36 - pipeline - INFO - Reference Data - Memory usage: 1.06 KB
+2026-04-23 11:07:36 - pipeline - INFO - Merged data: 5 records
+2026-04-23 11:07:36 - pipeline - INFO - Appending to existing YTD dataset at: data/processed/ytd_data.csv
+2026-04-23 11:07:36 - pipeline - INFO - YTD dataset updated: 16 total records
+2026-04-23 11:07:36 - pipeline - INFO - END: Data Parsing and Merging - SUCCESS
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - START: Metrics Computation
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - Metrics - WGS:
+2026-04-23 11:07:36 - pipeline - INFO -   Total Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Auto Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Manual Claims: 0
+2026-04-23 11:07:36 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-23 11:07:36 - pipeline - INFO - Metrics - MED:
+2026-04-23 11:07:36 - pipeline - INFO -   Total Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Auto Claims: 0
+2026-04-23 11:07:36 - pipeline - INFO -   Manual Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   AA Rate (%): 0.00
+2026-04-23 11:07:36 - pipeline - INFO - Metrics - GBD:
+2026-04-23 11:07:36 - pipeline - INFO -   Total Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Auto Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Manual Claims: 0
+2026-04-23 11:07:36 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-23 11:07:36 - pipeline - INFO - Metrics - COM:
+2026-04-23 11:07:36 - pipeline - INFO -   Total Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Auto Claims: 0
+2026-04-23 11:07:36 - pipeline - INFO -   Manual Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   AA Rate (%): 0.00
+2026-04-23 11:07:36 - pipeline - INFO - Metrics - NEW:
+2026-04-23 11:07:36 - pipeline - INFO -   Total Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Auto Claims: 1
+2026-04-23 11:07:36 - pipeline - INFO -   Manual Claims: 0
+2026-04-23 11:07:36 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-23 11:07:36 - pipeline - INFO - END: Metrics Computation - SUCCESS
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - START: Excel Report Generation
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - INFO - Creating Excel report at: data/output/West_Market_Summary.xlsx
+2026-04-23 11:07:36 - pipeline - INFO - Excel Report Data - Shape: (5, 6), Columns: ['Segment Code', 'Segment Name', 'Total Claims', 'Auto Claims', 'Manual Claims', 'AA Rate (%)']
+2026-04-23 11:07:36 - pipeline - INFO - Excel Report Data - Memory usage: 0.89 KB
+2026-04-23 11:07:36 - pipeline - ERROR - Failed to update Excel report - Error: ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 155, in update_excel_report
+    with pd.ExcelWriter(report_path, engine='openpyxl') as writer:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 58, in __init__
+    from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+2026-04-23 11:07:36 - pipeline - INFO - END: Excel Report Generation - FAILED
+2026-04-23 11:07:36 - pipeline - INFO - ============================================================
+2026-04-23 11:07:36 - pipeline - CRITICAL - ======================================================================
+2026-04-23 11:07:36 - pipeline - ERROR - Pipeline aborted due to critical error - Error: ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 221, in main
+    report_path = update_excel_report(config, metrics_dict, logger)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 155, in update_excel_report
+    with pd.ExcelWriter(report_path, engine='openpyxl') as writer:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 58, in __init__
+    from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+2026-04-23 11:07:36 - pipeline - CRITICAL - ======================================================================
+2026-04-23 11:07:36 - pipeline - INFO - Healthcare Claims Auto-Adjudication Pipeline - FINISHED
+2026-04-23 11:07:36 - pipeline - INFO - ======================================================================
+2026-04-24 06:36:01 - pipeline - INFO - ======================================================================
+2026-04-24 06:36:01 - pipeline - INFO - Healthcare Claims Auto-Adjudication Pipeline - STARTED
+2026-04-24 06:36:01 - pipeline - INFO - ======================================================================
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - START: Data Parsing and Merging
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - Reading MBU data from: data/input/mbu_report.txt
+2026-04-24 06:36:01 - pipeline - INFO - Loaded 5 records from MBU report
+2026-04-24 06:36:01 - pipeline - INFO - MBU Data - Shape: (5, 5), Columns: ['ClaimID', 'ProcessDate', 'SegmentCode', 'Status', 'ProcessingType']
+2026-04-24 06:36:01 - pipeline - INFO - MBU Data - Memory usage: 1.67 KB
+2026-04-24 06:36:01 - pipeline - INFO - Reading reference data from: data/input/reference_data.csv
+2026-04-24 06:36:01 - pipeline - INFO - Loaded 5 reference records
+2026-04-24 06:36:01 - pipeline - INFO - Reference Data - Shape: (5, 3), Columns: ['SegmentCode', 'SegmentName', 'Region']
+2026-04-24 06:36:01 - pipeline - INFO - Reference Data - Memory usage: 1.06 KB
+2026-04-24 06:36:01 - pipeline - INFO - Merged data: 5 records
+2026-04-24 06:36:01 - pipeline - INFO - Appending to existing YTD dataset at: data/processed/ytd_data.csv
+2026-04-24 06:36:01 - pipeline - INFO - YTD dataset updated: 21 total records
+2026-04-24 06:36:01 - pipeline - INFO - END: Data Parsing and Merging - SUCCESS
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - START: Metrics Computation
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - Metrics - WGS:
+2026-04-24 06:36:01 - pipeline - INFO -   Total Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Auto Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Manual Claims: 0
+2026-04-24 06:36:01 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-24 06:36:01 - pipeline - INFO - Metrics - MED:
+2026-04-24 06:36:01 - pipeline - INFO -   Total Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Auto Claims: 0
+2026-04-24 06:36:01 - pipeline - INFO -   Manual Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   AA Rate (%): 0.00
+2026-04-24 06:36:01 - pipeline - INFO - Metrics - GBD:
+2026-04-24 06:36:01 - pipeline - INFO -   Total Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Auto Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Manual Claims: 0
+2026-04-24 06:36:01 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-24 06:36:01 - pipeline - INFO - Metrics - COM:
+2026-04-24 06:36:01 - pipeline - INFO -   Total Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Auto Claims: 0
+2026-04-24 06:36:01 - pipeline - INFO -   Manual Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   AA Rate (%): 0.00
+2026-04-24 06:36:01 - pipeline - INFO - Metrics - NEW:
+2026-04-24 06:36:01 - pipeline - INFO -   Total Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Auto Claims: 1
+2026-04-24 06:36:01 - pipeline - INFO -   Manual Claims: 0
+2026-04-24 06:36:01 - pipeline - INFO -   AA Rate (%): 100.00
+2026-04-24 06:36:01 - pipeline - INFO - END: Metrics Computation - SUCCESS
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - START: Excel Report Generation
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - INFO - Creating Excel report at: data/output/West_Market_Summary.xlsx
+2026-04-24 06:36:01 - pipeline - INFO - Excel Report Data - Shape: (5, 6), Columns: ['Segment Code', 'Segment Name', 'Total Claims', 'Auto Claims', 'Manual Claims', 'AA Rate (%)']
+2026-04-24 06:36:01 - pipeline - INFO - Excel Report Data - Memory usage: 0.89 KB
+2026-04-24 06:36:01 - pipeline - ERROR - Failed to update Excel report - Error: ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 155, in update_excel_report
+    with pd.ExcelWriter(report_path, engine='openpyxl') as writer:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 58, in __init__
+    from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+2026-04-24 06:36:01 - pipeline - INFO - END: Excel Report Generation - FAILED
+2026-04-24 06:36:01 - pipeline - INFO - ============================================================
+2026-04-24 06:36:01 - pipeline - CRITICAL - ======================================================================
+2026-04-24 06:36:01 - pipeline - ERROR - Pipeline aborted due to critical error - Error: ModuleNotFoundError: No module named 'openpyxl'
+Traceback (most recent call last):
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 221, in main
+    report_path = update_excel_report(config, metrics_dict, logger)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\main.py", line 155, in update_excel_report
+    with pd.ExcelWriter(report_path, engine='openpyxl') as writer:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\muzam\Documents\Contribute\healthcare-claims-reporting-pipeline\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 58, in __init__
+    from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+2026-04-24 06:36:01 - pipeline - CRITICAL - ======================================================================
+2026-04-24 06:36:01 - pipeline - INFO - Healthcare Claims Auto-Adjudication Pipeline - FINISHED
+2026-04-24 06:36:01 - pipeline - INFO - ======================================================================
